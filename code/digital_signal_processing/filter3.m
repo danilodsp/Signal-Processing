@@ -1,11 +1,11 @@
-%% Iniciando comunicacao serial
+%% Initializing the serial communication
 
 clear
 
 s = serial('COM3','BaudRate',115200,'InputBufferSize',8*1024,'OutputBufferSize',8*1024,'Timeout',10);
 fopen(s);
 
-%% Construcao do sinal
+%% Creating the signal
 
 Fs = 10000;
 N = 1000;
@@ -16,7 +16,7 @@ u3 = sin(2*pi*2500*t);
 ruido = 0.3*randn(1,Fs/10);
 sinal = u1 + u2 + u3 + ruido;
 
-%% Enviando e recebendo o sinal
+%% Send and reception of the signal
 
 [z,p,k] = butter(20,[2*pi*1000 2*pi*2000]/(2*pi*5000),'bandpass');
 SOS = zp2sos(z,p,k);
@@ -32,7 +32,7 @@ R = fread(s,1000,'float');
 
 %plot(R)
 
-%% Filtro
+%% Filter
 
 [d1,d2] = size(SOS);
 yn = zeros(1,1000);
@@ -82,7 +82,7 @@ Y = fft(R,NFFT)/N;
 f = Fs/2*linspace(0,1,NFFT/2+1);
 plot(f,20*log10(2*abs(Y(1:NFFT/2+1))))
 
-%% Finalizando comunicacao
+%% Finishing the communication
 
 fclose(s)
 delete(s)

@@ -1,5 +1,5 @@
 %%
-% Iniciando comunicacao serial
+% Initializing the serial communication
 
 clear
 
@@ -7,7 +7,7 @@ s = serial('COM3','BaudRate',9600,'InputBufferSize',8*1024,'OutputBufferSize',8*
 fopen(s);
 
 %%
-% Construcao do sinal
+% Creating the signal
 
 u = [zeros(1,50) ones(1,50)];
 ruido = 0.1*randn(1,100);
@@ -15,7 +15,7 @@ ruido = 0.1*randn(1,100);
 sinal = u + ruido;
 
 %%
-% Enviando e recebendo o sinal
+% Send and reception of the signal
 
 %fprintf(s,'oi');
 %r = fscanf(s)
@@ -45,7 +45,7 @@ end
 
 
 %%
-% Finalizando comunicacao
+% Finishing the communication
 
 fclose(s)
 delete(s)

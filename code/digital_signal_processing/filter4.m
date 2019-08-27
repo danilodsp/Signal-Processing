@@ -2,12 +2,12 @@ clear
 close all
 clc
 
-%% Iniciando comunicação serial
+%% Initializing the serial communication
     
 s = serial('COM3','BaudRate',115200,'InputBufferSize',8*1024,'OutputBufferSize',8*1024,'Timeout',10);
 fopen(s);
 
-%% Construção do sinal
+%% Creating the signal
 
 Fs = 100000;
 N = 1000;
@@ -20,7 +20,7 @@ sinal2 = u2;
 
 %% Design filter
 
-% filtro = designfilt('bandpassiir','FilterOrder',20, ...
+% filter = designfilt('bandpassiir','FilterOrder',20, ...
 %     'CutoffFrequency1',1000,'CutoffFrequency2',2000, ...
 %     'SampleRate',10000);
 
@@ -34,7 +34,7 @@ SOS = zp2sos(z,p,k);
 % SOS = Hd.sosMatrix;
 % G = Hd.ScaleValues;
 
-%% Envio e recepção do sinal
+%% Send and reception of the signal
 
 nSamples = 1000;
 
@@ -45,7 +45,7 @@ fwrite(s,bytes_adc,'float');
 %fwrite(s,bytes,'float');
 y_arm = fread(s,nSamples,'float');
 
-%% Realização do filtro no matlab
+%% Perform the filter on Matlab
 
 [d1,d2] = size(SOS);
 y_matlab = zeros(1,1000);
@@ -80,7 +80,7 @@ for i=1:1000
     end
 end
 
-%% Análise dos resultados
+%% Results analysis
 
 plot((1/N)*abs(fft(sinal)))
 
@@ -100,7 +100,7 @@ Y = fft(y_arm,NFFT)/N;
 f = Fs/2*linspace(0,1,NFFT/2+1);
 plot(f,20*log10(2*abs(Y(1:NFFT/2+1))))
 
-%% Finalizando comunicação serial
+%% Finishing the serial communication
 
 fclose(s);
 delete(s)
