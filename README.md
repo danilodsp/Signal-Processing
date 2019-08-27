@@ -1,12 +1,12 @@
 # Signal Processing
 
-Projects and examples of digital signal processing in Matlab.
+A collection of digital signal processing algorithms implemented in Matlab.
 
 ## Getting Started
 
 ### Prerequisites
 
-Matlab R2016
+Matlab R2016b
 
 ## Author
 
