@@ -1,4 +1,7 @@
-% Análise de resposta em frequência com polos e zeros
+%% Federal University of Rio Grande do Norte
+% Digital Signal Processing - Communications Engineering Department (DCO)
+% Author: Danilo Pena
+% Description: analysis of frequency response with zeros and poles
 
 clear
 clc
@@ -22,7 +25,7 @@ ymax = 2;
 bb = poly(zz);
 aa = poly(pp);
 
-% passos em torno da metade do círculo unitário
+% passos em torno da metade do cï¿½rculo unitï¿½rio
 ww = [0:200]/200*pi;
 
 subplot(121);
@@ -60,7 +63,7 @@ for i = 1:length(ww);
   hold on
   plot(real(z),imag(z),'sg');
   
-  % adiciona os parâmetros omegas no plot
+  % adiciona os parï¿½metros omegas no plot
   for www = -0.8:0.2:0.8
     ejw = exp(j*www*pi);
     ll = sprintf('%.1f\\pi',www);

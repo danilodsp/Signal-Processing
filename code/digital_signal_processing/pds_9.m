@@ -1,21 +1,20 @@
-%% Filtro IIR
-% Processamento Digital de Sinais
-% Danilo Pena
-%
-% Objetivo: Exercício da aula de projetos de filtro IIR
+%% Federal University of Rio Grande do Norte
+% Digital Signal Processing
+% Author: Danilo Pena
+% Description: IIR Filter - IIR filter design exercise
 
-% As especificações são -1 dB @ 1 kHz, -40 dB @ 5 kHz
-% então 20*log10(1/sqrt(1+e^2)) =  -1 , logo e^2 = 
+% As especificaï¿½ï¿½es sï¿½o -1 dB @ 1 kHz, -40 dB @ 5 kHz
+% entï¿½o 20*log10(1/sqrt(1+e^2)) =  -1 , logo e^2 = 
 e2 = ((1/(10^(-1/20)))^2)-1
 %e2 =
 %     0.2589
 
-% e 20*log10(1/A) = -40, então A = 
+% e 20*log10(1/A) = -40, entï¿½o A = 
 A = 10^(40/20)
 %A = 
 %    100
 
-% Então a ordem deve ser no mínimo
+% Entï¿½o a ordem deve ser no mï¿½nimo
 0.5*log10((A*A-1)/e2)/log10(5000*2*pi/(1000*2*pi))
 %ans =
 %    3.2811
@@ -23,7 +22,7 @@ A = 10^(40/20)
 % Considerando que N deve ser um inteiro >= 3.28, fazemos
 N = 4;
 
-% Se 10*log10( 1/(1+(W/Wc)^2N) ) = -1 dB em W = 2pi*1 kHz , qual é o Wc?
+% Se 10*log10( 1/(1+(W/Wc)^2N) ) = -1 dB em W = 2pi*1 kHz , qual ï¿½ o Wc?
 Wc = 2*pi*1000/((1/(10^(-1/10)) - 1)^(1/(2*N)))
 %Wc =
 %   7.4393e+03
@@ -33,17 +32,17 @@ Wc/2/pi
 %   1.1840e+03
 % .. mesmo da tabela
 
-% Então agora projetamos o filtro
+% Entï¿½o agora projetamos o filtro
 [B,A] = butter(N,Wc,'s');
 % Plot sua resposta em log-log
 freqs(B,A)
-% .. ou amostra em uma frequência linear especifica de 0 à 10 kHz
+% .. ou amostra em uma frequï¿½ncia linear especifica de 0 ï¿½ 10 kHz
 W = [0:10:10000]*2*pi;
 [h,w] = freqs(B,A,W);
 subplot(111)
-% Plot o ganho em dB novamente com frequência em Hz
+% Plot o ganho em dB novamente com frequï¿½ncia em Hz
 plot(W/2/pi, 20*log10(abs(h)))
 grid
 % Zoom para confirmar que -1 dB @ 1 kHz, 
 % bem abaixo de -40 dB @ 5kHz porque a ordem utilizada foi maior que
-% a necessária para o projeto.
+% a necessï¿½ria para o projeto.

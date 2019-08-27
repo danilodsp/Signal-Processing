@@ -1,8 +1,7 @@
-%% Filtro 1
-% Processamento Digital de Sinais
-% Danilo Pena
-%
-% Objetivo: Demonstrar filtros simples de primeira ordem
+%% Federal University of Rio Grande do Norte
+% Digital Signal Processing
+% Author: Danilo Pena
+% Description: Demo of basic first-order filters
 
 clear all;
 clc;
@@ -17,8 +16,8 @@ pause
 soundsc(x)
 pause
 
-Fs = 8000;              % Frequência de amostragem
-T = 1/Fs;               % Período de amostragem
+Fs = 8000;              % Frequï¿½ncia de amostragem
+T = 1/Fs;               % Perï¿½odo de amostragem
 L = length(x);          % Tamanho do sinal
 t = (0:L-1)*T;          % Tempo
 X1 = fft(x);

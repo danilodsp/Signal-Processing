@@ -1,4 +1,7 @@
-% Verificando a diferença entre convolucao_circular e cc_tdf
+%% Federal University of Rio Grande do Norte
+% Digital Signal Processing - Communications Engineering Department (DCO)
+% Author: Danilo Pena
+% Description: check the difference between circular convolution and cc_dft
 
 x = rand(1,10);
 h = rand(1,10);

@@ -1,5 +1,7 @@
-%% Processamento Digital de Sinais - DCO UFRN
-% Filtro da média móvel
+%% Federal University of Rio Grande do Norte
+% Digital Signal Processing - Communications Engineering Department (DCO)
+% Author: Danilo Pena
+% Description: moving average filter
 
 clear; clc;
 
@@ -14,7 +16,7 @@ legend('d[n]','s[n]','x[n]');
 
 pause
 
-M = input('Número de amostras de entrada = ');
+M = input('Nï¿½mero de amostras de entrada = ');
 b = ones(M,1)/M;
 y = filter(b,1,x);
 figure (2)

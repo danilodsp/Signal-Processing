@@ -1,15 +1,17 @@
-%% Processamento Digital de Sinais DCO - UFRN
-% Correlação
+%% Federal University of Rio Grande do Norte
+% Digital Signal Processing - Communications Engineering Department (DCO)
+% Author: Danilo Pena
+% Description: correlation
 
 clear
 close all
 
 N = 96;
 n = 1:N;
-x = cos(pi*0.25*n); % sinal senoídal puro, x(t)
-d = randn(1,N); % ruído, d(t)
-y = x + d; % sinal corrompido com ruído, y(t)
-r = conv(y, fliplr(y)); % autocorrelação, r(t)
+x = cos(pi*0.25*n); % sinal senoï¿½dal puro, x(t)
+d = randn(1,N); % ruï¿½do, d(t)
+y = x + d; % sinal corrompido com ruï¿½do, y(t)
+r = conv(y, fliplr(y)); % autocorrelaï¿½ï¿½o, r(t)
 k = -28:28;
 
 figure(1)

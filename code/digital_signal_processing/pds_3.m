@@ -1,5 +1,7 @@
-%% Processamento Digital de Sinais DCO - UFRN
-% Correlação
+%% Federal University of Rio Grande do Norte
+% Digital Signal Processing - Communications Engineering Department (DCO)
+% Author: Danilo Pena
+% Description: correlation
 
 clear
 close all
@@ -12,10 +14,10 @@ n2 = 10:0.01:40; % atraso de u(t) para v(t)
 x = sinc(n);
 
 u = x(1500:4500); % Sinc pura, u(t)
-r = 0.1.*randn(1,3001); % Ruído puro, r(t)
-v = x(500:3500) + r; % Sinc + ruído, v(t)
+r = 0.1.*randn(1,3001); % Ruï¿½do puro, r(t)
+v = x(500:3500) + r; % Sinc + ruï¿½do, v(t)
 
-y = conv(u,fliplr(v)); % y(t) = correlação de u(t) com v(t)
+y = conv(u,fliplr(v)); % y(t) = correlaï¿½ï¿½o de u(t) com v(t)
 
 figure(1)
 subplot(4,1,1)
@@ -27,7 +29,7 @@ plot(n2,v)
 subplot(4,1,4)
 plot(n2,y(500:3500))
 
-%% Mesma coisa com maior ruído
+%% Mesma coisa com maior ruï¿½do
 
 r = 1.2.*randn(1,3001);
 v = x(500:3500) + r;
