@@ -1,5 +1,3 @@
-% Title: sampling
-
 n = 1e-1;
 T = 10;
 %t = -pi:n:pi;
