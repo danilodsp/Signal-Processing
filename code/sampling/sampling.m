@@ -1,3 +1,6 @@
+% Sampling
+% Author: Danilo Pena
+
 n = 1e-1;
 T = 10;
 %t = -pi:n:pi;
